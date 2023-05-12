@@ -1,31 +1,38 @@
-# Quiz Game
+# Quiz Show
 
-This repository contains implementation of the quiz game as seen on [JS Party](https://jsparty.fm) and [Go
-Time](https://gotime.fm).
-
-![quiz-game](https://user-images.githubusercontent.com/293805/165973302-8afe7c46-32a2-44ec-8cc2-253aae6f6be4.png)
-
-
-## History
-
-This game started out as a [Dojo](https://dojo.io) app, and was then ported to [React](https://reactjs.org) + [XState](https://xstate.js.org). Now, each implementation exists in this repository as a separate npm workspace, and future implementations may be added.
+This is a port of the Changelog Quiz Show code base to React/XState from Dojo.
 
 ## Getting started
 
-For more detailed information, see the READMEs for each implementation in their respective folders.
+Start the dev server
 
-The dojo implementation exists at `apps/dojo` and the React implementation exists at `apps/react`.
-
-To run either project, simply execute the following commands.
-
-For React:
-
-```shell
-npm run dev -w quiz-game-react
+```bash
+npm run dev
 ```
 
-For Dojo:
+Start Storybook
 
-```shell
-npm run dev -w quiz-game-dojo
+```bash
+npm run storybook
 ```
+
+## Operating the game
+
+- `esc` or `q` returns to main view, stopping audio
+- `c` shows contestants view (use between rounds)
+- `▶️` moves to next round
+- `◀️` moves to previous round
+- `b` plays "times up" sound
+- `y` plays "correct answer" sound
+- `n` plays "incorrect answer" sound
+- `t` plays "theme song" sound
+- `T` plays "stressed out theme song" sound
+- `w` plays "winner" song
+
+## Links
+
+- Check out the [original (Dojo) project](https://github.com/thechangelog/quiz-show)
+- Check out [XState](https://xstate.js.org/docs/)
+- [Storybook](https://storybook.js.org)
+- [storybook-xstate-addon](https://github.com/SimeonC/storybook-xstate-addon)
+
