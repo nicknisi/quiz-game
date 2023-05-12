@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSendEvent, useValue } from '../hooks/game';
 import { Player as PlayerData } from '../types';
-import classes from './Player.module.css';
+import classnames from 'classnames';
 
 export interface PlayerProps extends PlayerData {
   large?: boolean;
@@ -29,24 +29,48 @@ export const usePlayer = (player: PlayerData) => {
   };
 };
 
+const actionButton = classnames(['outline-0', 'cursor-pointer', 'text-2xl']);
+
 export function Player({ large, name, handle, avatar, score, hideControls }: PlayerProps) {
   const { increment, decrement } = usePlayer({ handle, avatar, name, score });
   return (
-    <div className={`${classes.root} ${large ? classes.large : ''}`}>
+    <div className={'group flex w-full items-center text-game-white m-3'}>
       {!hideControls && (
-        <div className="actions">
-          <button className={classes.actionButton} onClick={() => increment()}>
+        <div className="flex flex-col invisible group-hover:visible">
+          <button className={actionButton} onClick={() => increment()}>
             +
           </button>
-          <button className={classes.actionButton} onClick={() => decrement()}>
+          <button className={actionButton} onClick={() => decrement()}>
             -
           </button>
         </div>
       )}
-      <img className={classes.avatar} src={avatar ?? `http://localhost:8888/?handle=${handle}`} />
-      <div className={classes.info}>
-        <div className={classes.name}>{name}</div>
-        <div className={`${classes.score}, ${score >= 0 ? classes.positive : classes.negative}`}>{String(score)}</div>
+      <img
+        className={classnames(
+          [
+            'border-transparent',
+            'border-2',
+            'border-solid',
+            'radius',
+            'rounded-full',
+            'h-[100px]',
+            'min-w-[100px]',
+            'w-auto',
+            'object-cover',
+            'mr-3',
+            'group-hover:border-game-yellow',
+          ],
+          {
+            'h-[200px]': large,
+          },
+        )}
+        src={avatar ?? `http://localhost:8888/?handle=${handle}`}
+      />
+      <div className="flex flex-col">
+        <div className={classnames('font-jsdanger', 'text-lg', 'mb-0.5', { 'text-2xl': large })}>{name}</div>
+        <div className={classnames('font-sans, font-bold text-2xl', { 'text-game-red': score < 0 })}>
+          {String(score)}
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { useQuestion } from '../hooks/game';
 import { Round as RoundType } from '../types';
 import { Category } from './Category';
 import { Question } from './Question';
-import classes from './Round.module.css';
+import classnames from 'classnames';
 
 export interface BaseRoundProps {
   round: RoundType;
@@ -15,7 +15,7 @@ export function RegularRound({ round }: BaseRoundProps) {
   const category = useMemo(() => currentQuestion?.category, [currentQuestion]);
   const { categories } = round;
   return (
-    <div key="grid" className={`${classes.root} ${categories.length === 4 ? classes.fourColumns : ''}`}>
+    <div key="grid" className={classnames('grid relative', categories.length === 4 ? 'grid-cols-4' : 'grid-cols-5')}>
       {categories.map((category) => (
         <Category category={category} key={category.name} onClick={(question) => selectQuestion(question, category)} />
       ))}
@@ -50,7 +50,7 @@ export function FinalRound({ round }: BaseRoundProps) {
   const currentQuestion = current?.question;
   const currentCategory = current?.category;
   return (
-    <div className={classes.final}>
+    <div className={classnames('relative', 'self-stretch', 'items-center', 'flex-grow', 'flex', 'justify-center')}>
       {currentQuestion && currentCategory ? (
         <Question
           final
@@ -66,7 +66,7 @@ export function FinalRound({ round }: BaseRoundProps) {
         />
       ) : (
         <div
-          className={classes.category}
+          className={classnames('text-white', 'font-jsdanger', 'text-3xl')}
           onClick={() => {
             selectQuestion(question, category);
             // set current question
