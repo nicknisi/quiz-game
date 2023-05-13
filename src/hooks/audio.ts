@@ -1,5 +1,6 @@
 import { useEffectOnce } from './utils';
 import { GameStyle } from '../types';
+import { useGameStyle } from './game';
 
 const sounds = {
   correctAnswer: 'Correct Answer.wav',
@@ -32,7 +33,9 @@ function playAudio(sound: keyof typeof sounds) {
   player.play();
 }
 
-export const useAudioControls = (style: GameStyle) => {
+export const useAudioControls = () => {
+  // default to jsDanger sounds
+  let style: 'jsDanger' | 'goPanic' = useGameStyle().name === 'goPanic' ? 'goPanic' : 'jsDanger';
   useEffectOnce(() => {
     const listener = (event: KeyboardEvent) => {
       switch (event.key) {

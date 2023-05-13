@@ -1,3 +1,4 @@
+import { useGameStyle } from '../hooks/game';
 import { Category, Question as QuestionData } from '../types';
 import classnames from 'classnames';
 
@@ -18,15 +19,27 @@ export function Question({
   showAnswer,
   final,
 }: QuestionProps) {
+  const style = useGameStyle();
   return (
     <div
       className={classnames(
-        'inset-0.5 flex content-center flex-col bg-game-blue text-game-white self-stretch text-center flex-grow basis-[600px] p-3 text-shadow-lg',
+        'inset-0.5',
+        'flex',
+        'content-center',
+        'flex-col',
+        style.lightMode ? 'text-black' : 'text-white',
+        'self-stretch',
+        'text-center',
+        'flex-grow',
+        'basis-[600px]',
+        'p-3',
+        'text-shadow-lg',
         {
           absolute: !final,
         },
       )}
       onClick={() => onClick?.()}
+      style={{ backgroundColor: style.secondaryColor }}
     >
       <div className="flex flex-grow justify-between">
         <div className="text-lg font-jsdanger">{category.name}</div>
@@ -47,9 +60,9 @@ export function Question({
             'text-center',
             'shadow-black',
             'text-shadow-lg',
-            'text-game-yellow',
             'text-6xl',
           )}
+          style={{ color: style.primaryColor }}
         >
           {answer}
         </div>

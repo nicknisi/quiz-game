@@ -1,5 +1,3 @@
-export type GameStyle = 'jsDanger' | 'goPanic';
-
 export type GameView = 'idle' | 'game' | 'contestants';
 
 export interface Player {
@@ -37,9 +35,21 @@ export interface Game {
   rounds: Round[];
 }
 
+export interface Style {
+  lightMode?: boolean;
+  primaryColor?: string;
+  secondaryColor?: string;
+  backgroundColor?: string;
+  logoUrl?: string;
+  abstractUrl?: string;
+  abstractOpacity?: number;
+}
+
+export type GameStyle = 'jsDanger' | 'goPanic' | Style;
+
 export interface State {
   name: string;
-  style: string;
+  style?: GameStyle;
   currentRound: number;
   contestants: Player[];
   pointsAtStake: number;

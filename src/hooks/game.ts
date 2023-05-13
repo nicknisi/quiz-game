@@ -31,6 +31,40 @@ export const useGameStatus = () => {
   return loaded;
 };
 
+const jsDangerStyle = {
+  name: 'jsDanger',
+  lightMode: false,
+  primaryColor: '#03009F',
+  secondaryColor: '#FCD740',
+  backgroundColor: '#101820',
+  abstractOpacity: 0.2,
+  logoUrl: '/assets/jsdanger-logo_3x.png',
+  abstractUrl: '/assets/jsparty-abstract-art.svg',
+};
+
+const goPanicStyle = {
+  ...jsDangerStyle,
+  name: 'goPanic',
+  logoUrl: '/assets/gopanic-logo_2x.png',
+  abstractUrl: '/assets/gotime-abstract-art.svg',
+};
+
+export const useGameStyle = () => {
+  const style = useContextValue('style');
+
+  if (style === 'goPanic') {
+    return goPanicStyle;
+  }
+  if (style === 'jsDanger') {
+    return jsDangerStyle;
+  }
+  return {
+    ...jsDangerStyle,
+    ...style,
+    name: 'custom',
+  };
+};
+
 export const useGameData = () => {
   const service = useGameService();
   const contestants = useContextValue('contestants');
@@ -39,7 +73,6 @@ export const useGameData = () => {
   const currentRound = useContextValue('currentRound');
   const name = useContextValue('name');
   const rounds = useContextValue('rounds');
-  const style = useContextValue('style');
   const winner = useContextValue('winner');
   const round = useMemo(() => rounds?.[currentRound], [rounds, currentRound]);
   const numRounds = useMemo(() => rounds?.length, [rounds]);
@@ -58,7 +91,6 @@ export const useGameData = () => {
     currentRound,
     name,
     rounds,
-    style,
     winner,
     round,
     numRounds,

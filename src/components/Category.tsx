@@ -1,3 +1,4 @@
+import { useGameStyle } from '../hooks/game';
 import { Category as CategoryData, Question } from '../types';
 import classnames from 'classnames';
 
@@ -16,19 +17,32 @@ const boxClasses = [
   'py-2',
   'px-3',
   'font-sans',
-  'bg-game-blue',
   'text-shadow-lg',
   'shadow-black',
 ];
 
 export const Category = ({ onClick, category: { name, questions } }: CategoryProps) => {
+  const style = useGameStyle();
   return (
     <div className="grid flex-col">
-      <div className={classnames(['text-center', 'font-bold', 'text-game-white'], boxClasses)}>{name}</div>
+      <div
+        className={classnames('text-center', 'font-bold', style.lightMode ? 'text-black' : 'text-white', boxClasses)}
+        style={{ backgroundColor: style.secondaryColor }}
+      >
+        {name}
+      </div>
       {questions.map((question) => (
-        <div key={question.answer} className={classnames(boxClasses)} onClick={() => onClick(question)}>
+        <div
+          key={question.answer}
+          className={classnames(boxClasses)}
+          onClick={() => onClick(question)}
+          style={{ backgroundColor: style.secondaryColor }}
+        >
           {!question.used && (
-            <div className={classnames(['text-game-yellow', 'cursor-pointer', 'font-bold', 'text-3xl', 'mt-0.5'])}>
+            <div
+              className={classnames(['cursor-pointer', 'font-bold', 'text-3xl', 'mt-0.5'])}
+              style={{ color: style.primaryColor }}
+            >
               {question.value}
             </div>
           )}

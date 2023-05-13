@@ -2,87 +2,91 @@ import { Player } from './components/Player';
 import { Players } from './components/Players';
 import { Round } from './components/Round';
 import { useAudioControls } from './hooks/audio';
-import { useGameControls, useGameData, useGameStatus, useGameView } from './hooks/game';
+import { useGameControls, useGameData, useGameStatus, useGameView, useGameStyle } from './hooks/game';
 import classnames from 'classnames';
+import { useEffect, useRef } from 'react';
 
 function App() {
   const loaded = useGameStatus();
-  const {
-    currentRound,
-    style: gameStyle,
-    name: gameName,
-    contestants,
-    round,
-    numRounds,
-    setRound,
-    style,
-    winner,
-  } = useGameData();
+  const { currentRound, name: gameName, contestants, round, numRounds, setRound, winner } = useGameData();
+  const gameStyle = useGameStyle();
   useGameControls();
-  useAudioControls(style);
+  useAudioControls();
   const view = useGameView();
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = mainRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const id = (element.id ||= 'root');
+
+    const pseudoStyles = `
+      content: "";
+      height: 80vw;
+      width: 80vw;
+      opacity: ${gameStyle.abstractOpacity};
+      position: fixed;
+      right: -40vw;
+      top: -40vw;
+      pointer-events: none;
+      z-index: -1;
+      background-image: url(${gameStyle?.abstractUrl});
+    `;
+
+    const rule = `#${id}:before { ${pseudoStyles} }`;
+
+    const styleSheet = document.createElement('style');
+    styleSheet.innerHTML = rule;
+
+    document.head.appendChild(styleSheet);
+
+    return () => {
+      document.head.removeChild(styleSheet);
+    };
+  }, [gameStyle, mainRef]);
 
   return (
     <>
       {loaded ? (
         <div
-          className={classnames(
-            'flex',
-            'flex-col',
-            'items-center',
-            'justify-center',
-            'relative',
-            'py-3',
-            'px-5',
-            'before:content-[""]',
-            'before:h-[80vw]',
-            'before:w-[80vw]',
-            'before:opacity-20',
-            'before:fixed',
-            'before:-right-[40vw]',
-            'before:-top-[40vw]',
-            'before:-z-[1]',
-            'before:pointer-events-none',
-            {
-              'before:bg-jsdanger-abstract': style === 'jsDanger',
-              'before:bg-gopanic-abstract': style === 'goPanic',
-            },
-          )}
+          ref={mainRef}
+          className={classnames('flex', 'flex-col', 'items-center', 'justify-center', 'relative', 'py-3', 'px-5')}
         >
           {' '}
-          <div className={classnames('flex', 'items-end', 'text-white', 'w-full', 'mb-[2.5vw]')}>
-            <h1
-              className={classnames(
-                'bg-full',
-                'flex-grow-0',
-                'flex-shrink-0',
-                'basis-[526px]',
-                'm-0',
-                'mr-3',
-                'w-[526px]',
-                '-indent-[9999px]',
-                'bg-center',
-                'bg-no-repeat',
-                {
-                  'bg-jsdanger-logo': gameStyle === 'jsDanger',
-                  'bg-gopanic-logo': gameStyle === 'goPanic',
-                  'h-[130px]': gameStyle === 'goPanic',
-                  'h-[100px]': gameStyle === 'jsDanger',
-                },
-              )}
-            >
-              {gameName}
-            </h1>
+          <div
+            className={classnames(
+              'flex',
+              'items-end',
+              'w-full',
+              'mb-[2.5vw]',
+              gameStyle?.lightMode ? 'text-black' : 'text-white',
+            )}
+          >
+            {!gameStyle.logoUrl ? (
+              <h1
+                className={classnames(
+                  'max-w-[526px]',
+                  'flex-grow-0',
+                  'flex-shrink-0',
+                  'basis-[526px]',
+                  'm-0',
+                  'mr-3',
+                  'w-[526px]',
+                  'text-4xl',
+                )}
+              >
+                {gameName}
+              </h1>
+            ) : (
+              <img alt={gameName} src={gameStyle.logoUrl} className={classnames('max-w-[526px]', 'h-auto')} />
+            )}
             {!winner && (
               <button
-                className={classnames(
-                  'font-jsdanger',
-                  'bg-none',
-                  'border-none',
-                  'text-game-yellow',
-                  'text-left',
-                  'text-3xl',
-                )}
+                className={classnames('font-jsdanger', 'bg-none', 'border-none', 'text-left', 'text-3xl')}
                 disabled={currentRound >= numRounds - 1}
                 onClick={() => {
                   setRound();
@@ -96,8 +100,8 @@ function App() {
           {winner ? (
             <div
               key="winner-view"
-              className={classnames('flex', 'flex-col', 'text-center', 'font-jsdanger', 'text-game-yellow')}
-              style={{ zoom: '300%' }}
+              className={classnames('flex', 'flex-col', 'text-center', 'font-jsdanger')}
+              style={{ zoom: '300%', color: gameStyle.secondaryColor }}
             >
               <h1>Winner</h1>
               <Player hideControls {...winner} />

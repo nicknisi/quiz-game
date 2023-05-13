@@ -23,14 +23,6 @@ module.exports = {
         sans: ['Pragati Narrow', 'sans-serif'],
         jsdanger: ['jsdanger', 'serif'],
       },
-      colors: {
-        game: {
-          blue: '#03009F',
-          yellow: '#FCD740',
-          white: '#FFF',
-          red: '#E22A2A',
-        },
-      },
     },
   },
   plugins: [

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useSendEvent, useValue } from '../hooks/game';
+import { useGameStyle, useSendEvent, useValue } from '../hooks/game';
 import { Player as PlayerData } from '../types';
 import classnames from 'classnames';
 
@@ -33,8 +33,18 @@ const actionButton = classnames(['outline-0', 'cursor-pointer', 'text-2xl']);
 
 export function Player({ large, name, handle, avatar, score, hideControls }: PlayerProps) {
   const { increment, decrement } = usePlayer({ handle, avatar, name, score });
+  const style = useGameStyle();
   return (
-    <div className={'group flex w-full items-center text-game-white m-3'}>
+    <div
+      className={classnames(
+        'group',
+        'flex',
+        'w-full',
+        'items-center',
+        style.lightMode ? 'text-black' : 'text-white',
+        'm-3',
+      )}
+    >
       {!hideControls && (
         <div className="flex flex-col invisible group-hover:visible">
           <button className={actionButton} onClick={() => increment()}>
@@ -58,7 +68,7 @@ export function Player({ large, name, handle, avatar, score, hideControls }: Pla
             'w-auto',
             'object-cover',
             'mr-3',
-            'group-hover:border-game-yellow',
+            style.lightMode ? 'group-hover:border-black' : 'group-hover:border-white',
           ],
           {
             'h-[200px]': large,
@@ -68,7 +78,7 @@ export function Player({ large, name, handle, avatar, score, hideControls }: Pla
       />
       <div className="flex flex-col">
         <div className={classnames('font-jsdanger', 'text-lg', 'mb-0.5', { 'text-2xl': large })}>{name}</div>
-        <div className={classnames('font-sans, font-bold text-2xl', { 'text-game-red': score < 0 })}>
+        <div className={classnames('font-sans, font-bold text-2xl', { 'text-red-400': score < 0 })}>
           {String(score)}
         </div>
       </div>
