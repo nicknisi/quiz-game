@@ -2,7 +2,7 @@ import { useSelector } from '@xstate/react';
 import { useCallback, useContext, useEffect, useMemo } from 'react';
 import { StateFrom, StateValueMap } from 'xstate';
 import { GameContext } from '../GameProvider';
-import { gameMachine, GameMachineContext } from '../machines/gameMachine';
+import type { GameMachineContext, gameMachine } from '../machines/gameMachine';
 import { Category, GameView, Question } from '../types';
 
 export const useGameService = () => {
@@ -34,8 +34,8 @@ export const useGameStatus = () => {
 const jsDangerStyle = {
   name: 'jsDanger',
   lightMode: false,
-  primaryColor: '#03009F',
-  secondaryColor: '#FCD740',
+  primaryColor: '#FCD740',
+  secondaryColor: '#03009F',
   backgroundColor: '#101820',
   abstractOpacity: 0.2,
   logoUrl: '/assets/jsdanger-logo_3x.png',

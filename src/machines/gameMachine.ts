@@ -35,6 +35,7 @@ export const gameMachine = createMachine<GameMachineContext, GameMachineEvent>(
   {
     id: 'gameMachine',
     preserveActionOrder: true,
+    predictableActionArguments: true,
     initial: 'initial',
     states: {
       initial: {
@@ -46,9 +47,9 @@ export const gameMachine = createMachine<GameMachineContext, GameMachineEvent>(
         onDone: 'game',
         states: {
           initial: {
-            entry: assign({
-              url: () => '/assets/tricks.json',
-            }),
+            // entry: assign({
+            //   url: () => '/assets/tricks.json',
+            // }),
             always: 'loadGame',
           },
           loadGame: {
