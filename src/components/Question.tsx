@@ -58,6 +58,7 @@ export function Question({
             'font-jsdanger',
             'text-3xl',
             'text-center',
+            'pt-6',
             'shadow-black',
             'text-shadow-lg',
             'text-6xl',
