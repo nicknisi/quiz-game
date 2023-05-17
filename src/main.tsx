@@ -1,6 +1,6 @@
 // import { inspect } from '@xstate/inspect';
 import { StrictMode, Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import { GameProvider } from './GameProvider';
 import './index.css';
@@ -8,8 +8,10 @@ import './index.css';
 // inspect({
 //   iframe: () => document.querySelector<HTMLIFrameElement>('[data-xstate]'),
 // });
+//
+const root = createRoot(document.getElementById('root')!);
 
-ReactDOM.render(
+root.render(
   <StrictMode>
     <Suspense fallback={<div>Loading...</div>}>
       <GameProvider>
@@ -17,5 +19,4 @@ ReactDOM.render(
       </GameProvider>
     </Suspense>
   </StrictMode>,
-  document.getElementById('root'),
 );
