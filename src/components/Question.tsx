@@ -46,8 +46,8 @@ export function Question({
         <div className="font-jsdanger text-lg">{value}</div>
       </div>
       {image && (
-        <div className="flex-grow">
-          <img className="h-auto max-w-[75%]" src={image} alt={clue} />
+        <div className="flex-grow w-full">
+          <img className="mx-auto h-auto max-w-[75%] align-center" src={image} alt={clue} />
         </div>
       )}
       <div className="cursor-pointer font-jsdanger text-5xl p-2 flex-gro text-shadow-lg shadow-black">{clue}</div>
