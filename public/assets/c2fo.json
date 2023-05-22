@@ -1,0 +1,207 @@
+{
+  "game": {
+    "name": "C2FOpardy",
+    "style": {
+      "primaryColor": "#58ba7f",
+      "secondaryColor": "#2d314d",
+      "backgroundColor": "#101820",
+      "logoUrl": "/assets/c2fopardy2.svg",
+      "abstractUrl": "/assets/c2fo-abstract-art.svg",
+      "abstractOpacity": 0.1
+    },
+    "contestants": [
+      {
+        "name": "Team Doug",
+        "handle": "dougamartin",
+        "avatar": "https://ca.slack-edge.com/T02A88ESG-UCB376YMD-1dc82ae2b19e-512",
+        "score": 0
+      },
+      {
+        "name": "Team Andy",
+        "handle": "andymoon",
+        "avatar": "https://ca.slack-edge.com/T02A88ESG-UCJ6LFEQJ-gf65ea242243-512",
+        "score": 0
+      }
+    ],
+    "rounds": [
+      {
+        "name": "Trouble",
+        "format": "standard",
+        "categories": [
+          {
+            "name": "Current Tech Stack",
+            "hint": "Match the tech stack of old with the description",
+            "questions": [
+              {
+                "value": 100,
+                "clue": "A build tool has a similar sound to this body part, but is definitely not as ripe.",
+                "answer": "feet"
+              },
+              {
+                "value": 200,
+                "clue": "Frontend engineers often forget, Rocky Balboa may never when considering this unifying hub.",
+                "answer": "Apollo"
+              },
+              {
+                "value": 300,
+                "clue": "One-way data binding keeps everything modular and fast with this must have framework.",
+                "answer": "React"
+              },
+              {
+                "value": 400,
+                "clue": "This controversial yet stylish trend just might be the future of C2FO",
+                "answer": "Tailwind"
+              },
+              {
+                "value": 500,
+                "clue": "This Greek word for 'worty' or 'deserving' powers many front end requests on the front end.",
+                "answer": "Axios"
+              }
+            ]
+          },
+          {
+            "name": "People of C2FO",
+            "hint": "Match the tech stack of old with the description",
+            "questions": [
+              {
+                "value": 100,
+                "clue": "This adopted startup founder and former CEO of UMB Bank is a big deal at C2FO.",
+                "answer": "Sandy Kemper"
+              },
+              {
+                "value": 200,
+                "clue": "This colleague created a doggy-styled language that's genered such 'wow'.",
+                "answer": "Jan Monterrubio"
+              },
+              {
+                "value": 300,
+                "clue": "This individual can often be found reaching for 🌞 and ✍️ emojis",
+                "answer": "Anthony Ross"
+              },
+              {
+                "value": 400,
+                "clue": "Avoid provoking or challenging this colleague while wearing roller skates.",
+                "answer": "Tina Elder"
+              },
+              {
+                "value": 500,
+                "clue": "This teammate was focused on ",
+                "answer": ""
+              }
+            ]
+          },
+          {
+            "name": "C2FO Historical Tech",
+            "hint": "Match the tech stack of old with the description",
+            "questions": [
+              {
+                "value": 100,
+                "clue": "This antiquated front end framework still powers much of C2FO.",
+                "answer": "Angular.js"
+              },
+              {
+                "value": 200,
+                "clue": "This meta-framework was developed early-on to bring the 'best' of Dojo to Backbone.",
+                "answer": "Thumbs"
+              },
+              {
+                "value": 300,
+                "clue": "Before settling on TypeScript, this trendy language was considered for the future of C2FO's stack.",
+                "answer": "Elixir"
+              },
+              {
+                "value": 400,
+                "clue": "This discontinued query engine still powers C2FO, all while providing a comfortable place for catching some rays",
+                "answer": "Patio"
+              },
+              {
+                "value": 500,
+                "clue": "This gem of a back end framework originally powered C2FO.",
+                "answer": "Sinatra"
+              }
+            ]
+          },
+          {
+            "name": "Teams of C2FO",
+            "hint": "Match the tech stack of old with the description",
+            "questions": [
+              {
+                "value": 100,
+                "image": "assets/flinstones.jpg",
+                "clue": "This team's name is a reference to a popular cartoon from the 60s.",
+                "answer": "Team Bedrock"
+              },
+              {
+                "value": 200,
+                "clue": "This team is not interested in playing poker, but rather in developing open-source software for payment processing on the internet.",
+                "answer": "Card Team"
+              },
+              {
+                "value": 300,
+                "clue": "This crustacead-themed team is not afraid to come out of their shell ",
+                "answer": "Crabs (Strategic Scaling)"
+              },
+              {
+                "value": 400,
+                "clue": "You spin me right round could be a good anthem for this team.",
+                "answer": "Wheels"
+              },
+              {
+                "value": 500,
+                "clue": "This team used to be called 'The Island of Misfit Toys'.",
+                "answer": "Engineering Services"
+              }
+            ]
+          },
+          {
+            "name": "The Bleeding Edge",
+            "hint": "Match the tech stack of old with the description",
+            "questions": [
+              {
+                "value": 100,
+                "clue": "This property relies on the browser to figure out the best balanced line wrapping solution for text",
+                "answer": "text-wrap: balance"
+              },
+              {
+                "value": 200,
+                "clue": "You might reach for this selector when targeting a parent element while a child is doing something",
+                "answer": ":has"
+              },
+              {
+                "value": 300,
+                "clue": "This concept enables you to apply styles to an element based on the size of it's parent element",
+                "answer": "Container Queries"
+              },
+              {
+                "value": 400,
+                "clue": "You have to use `require` instead of `import` in Node because it relies on this module system",
+                "answer": "CommonJS"
+              },
+              {
+                "value": 500,
+                "clue": "`this` in the browser's global scope refers to `window`, but in Node's it refers to...",
+                "answer": "module.exports"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Final Trouble",
+        "format": "final",
+        "categories": [
+          {
+            "name": "CSS 🤝 R&B",
+            "hint": "",
+            "questions": [
+              {
+                "clue": "A year before CSS's debut, this chart-topping trio sang this song...",
+                "answer": "TLC"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
