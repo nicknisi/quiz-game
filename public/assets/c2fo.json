@@ -39,7 +39,7 @@
               },
               {
                 "value": 200,
-                "clue": "Frontend engineers often forget, Rocky Balboa may never when considering this unifying hub.",
+                "clue": "Frontend engineers often forget, Rocky Balboa may not when considering this unifying hub.",
                 "answer": "Apollo"
               },
               {
@@ -49,12 +49,12 @@
               },
               {
                 "value": 400,
-                "clue": "This controversial yet stylish trend just might be the future of C2FO",
+                "clue": "This controversial yet stylish trend just might be the future of CSS at C2FO",
                 "answer": "Tailwind"
               },
               {
                 "value": 500,
-                "clue": "This Greek word for 'worty' or 'deserving' powers many front end requests on the front end.",
+                "clue": "This Greek word for 'worthy' or 'deserving' powers many front end requests on the front end.",
                 "answer": "Axios"
               }
             ]
@@ -70,7 +70,7 @@
               },
               {
                 "value": 200,
-                "clue": "This colleague created a doggy-styled language that's genered such 'wow'.",
+                "clue": "This colleague created a Shiba Inu language that's generated such 'wow'.",
                 "answer": "Jan Monterrubio"
               },
               {
@@ -80,13 +80,13 @@
               },
               {
                 "value": 400,
-                "clue": "Avoid provoking or challenging this colleague while wearing roller skates.",
+                "clue": "Avoid provoking this colleague while wearing roller skates.",
                 "answer": "Tina Elder"
               },
               {
                 "value": 500,
-                "clue": "This teammate was focused on ",
-                "answer": ""
+                "clue": "This person's biggest regret in life is writing a rules engine in JavaScript.",
+                "answer": "Doug Martin"
               }
             ]
           },
@@ -116,8 +116,8 @@
               },
               {
                 "value": 500,
-                "clue": "This gem of a back end framework originally powered C2FO.",
-                "answer": "Sinatra"
+                "clue": "The first front-end framework used at C2FO that 'already did it'",
+                "answer": "Dojo"
               }
             ]
           },
@@ -128,7 +128,7 @@
               {
                 "value": 100,
                 "image": "assets/flinstones.jpg",
-                "clue": "This team's name is a reference to a popular cartoon from the 60s.",
+                "clue": "This team's name is a cross between the settings of these two popular cartoones.",
                 "answer": "Team Bedrock"
               },
               {
@@ -138,12 +138,12 @@
               },
               {
                 "value": 300,
-                "clue": "This crustacead-themed team is not afraid to come out of their shell ",
+                "clue": "This crustacean-themed team is not afraid to come out of their shell ",
                 "answer": "Crabs (Strategic Scaling)"
               },
               {
                 "value": 400,
-                "clue": "You spin me right round could be a good anthem for this team.",
+                "clue": "'You spin me right round' could be a good anthem for this team.",
                 "answer": "Wheels"
               },
               {
@@ -159,28 +159,28 @@
             "questions": [
               {
                 "value": 100,
-                "clue": "This property relies on the browser to figure out the best balanced line wrapping solution for text",
-                "answer": "text-wrap: balance"
+                "clue": "This popular JS Framework only started losing market share in 2020.",
+                "answer": "jQuery"
               },
               {
                 "value": 200,
-                "clue": "You might reach for this selector when targeting a parent element while a child is doing something",
-                "answer": ":has"
+                "clue": "This compile-to-JS language aimed to refine JavaScript, emphasizing elegance, simplicity, and readability in its syntax.",
+                "answer": "CoffeeScript"
               },
               {
                 "value": 300,
-                "clue": "This concept enables you to apply styles to an element based on the size of it's parent element",
-                "answer": "Container Queries"
+                "clue": "This popular way of defining variables is the only one that 'hoists'",
+                "answer": "var"
               },
               {
                 "value": 400,
-                "clue": "You have to use `require` instead of `import` in Node because it relies on this module system",
-                "answer": "CommonJS"
+                "clue": "`this` in the browser's global scope refers to `window`, but in Node's it refers to...",
+                "answer": "module.exports"
               },
               {
                 "value": 500,
-                "clue": "`this` in the browser's global scope refers to `window`, but in Node's it refers to...",
-                "answer": "module.exports"
+                "clue": "This pattern for handling async calls superceded 'Promises' in Node.js.",
+                "answer": "callbacks"
               }
             ]
           }
@@ -191,12 +191,12 @@
         "format": "final",
         "categories": [
           {
-            "name": "CSS 🤝 R&B",
+            "name": "JavaScript History",
             "hint": "",
             "questions": [
               {
-                "clue": "A year before CSS's debut, this chart-topping trio sang this song...",
-                "answer": "TLC"
+                "clue": "After abandoning the 4th edition, the 5th edition of the ECMAScript specification was published in this year",
+                "answer": "2009"
               }
             ]
           }
