@@ -37,7 +37,10 @@ function App() {
       background-image: url(${gameStyle?.abstractUrl});
     `;
 
-    const rule = `#${id}:before { ${pseudoStyles} }`;
+    const rule = `
+      #${id}:before { ${pseudoStyles} }
+      body { background-color: ${gameStyle?.backgroundColor}; }
+    `;
 
     const styleSheet = document.createElement('style');
     styleSheet.innerHTML = rule;
